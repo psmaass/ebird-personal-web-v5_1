@@ -3,6 +3,7 @@
 const API_BASE = 'https://api.ebird.org/v2';
 const APP_REGION = 'CL';
 const APP_LOCALE = 'es_CL';
+const APP_ENGLISH_LOCALE = 'en';
 
 function text(value = '') { return String(value ?? '').trim(); }
 
@@ -66,12 +67,13 @@ function appendLocations(params, raw, max) {
 function buildUrl(query = {}) {
   const action = text(query.action);
   const days = boundedInteger(query.days, 30, 1, 30);
-  const locale = APP_LOCALE;
+  const locale = action === 'taxonomyEnglish' ? APP_ENGLISH_LOCALE : APP_LOCALE;
   const params = new URLSearchParams();
   let path;
 
   switch (action) {
     case 'taxonomy':
+    case 'taxonomyEnglish':
       path = '/ref/taxonomy/ebird';
       params.set('fmt', 'json');
       params.set('locale', locale);
@@ -272,7 +274,7 @@ async function fetchEBird(query, apiKey) {
     headers: {
       'x-ebirdapitoken': apiKey,
       'accept': 'application/json',
-      'user-agent': 'Control-Avistamientos-Chile/3.1'
+      'user-agent': 'Mi-eBird-Personal/5.9'
     },
   });
 
