@@ -1,0 +1,15 @@
+# Llaves y configuración privada
+.env
+.env.*
+!.env.example
+
+# Dependencias y archivos de despliegue local
+node_modules/
+.vercel/
+
+# Cachés y archivos temporales
+geocode-cache.json
+geocode-cache.json.tmp
+*.log
+.DS_Store
+Thumbs.db

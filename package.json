@@ -1,0 +1,9 @@
+{
+  "name": "mi-ebird-personal-web",
+  "version": "5.1.0",
+  "private": true,
+  "description": "Aplicación personal para lista de aves, avistamientos, rutas y vuelos con taxonomía eBird.",
+  "engines": {
+    "node": "22.x"
+  }
+}

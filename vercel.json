@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "functions": {
+    "api/ebird.js": { "maxDuration": 30 },
+    "api/routing.js": { "maxDuration": 30 },
+    "api/flights.js": { "maxDuration": 60 },
+    "api/place-search.js": { "maxDuration": 30 },
+    "api/config-status.js": { "maxDuration": 10 }
+  },
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" }
+  ]
+}
