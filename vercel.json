@@ -8,6 +8,9 @@
     "api/routing.js": {
       "maxDuration": 30
     },
+    "api/geocode.js": {
+      "maxDuration": 30
+    },
     "api/config-status.js": {
       "maxDuration": 10
     }
