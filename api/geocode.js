@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_LIMIT = 300;
+const CACHE_LIMIT = 500;
 const cache = new Map();
 
 function boundedNumber(value, min, max, label) {
@@ -34,19 +34,16 @@ function first(address, keys) {
   return '';
 }
 
-async function fetchGeocode(query = {}) {
-  const lat = boundedNumber(query.lat, -90, 90, 'Latitud');
-  const lng = boundedNumber(query.lng, -180, 180, 'Longitud');
-  const key = `${lat.toFixed(4)},${lng.toFixed(4)}`;
-  const cached = cacheGet(key);
-  if (cached) return cached;
+function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
 
+async function queryNominatim(lat, lng, zoom) {
   const params = new URLSearchParams({
     format: 'jsonv2',
     lat: String(lat),
     lon: String(lng),
-    zoom: '12',
+    zoom: String(zoom),
     addressdetails: '1',
+    namedetails: '1',
     'accept-language': 'es',
   });
 
@@ -57,7 +54,7 @@ async function fetchGeocode(query = {}) {
     response = await fetch(`https://nominatim.openstreetmap.org/reverse?${params}`, {
       headers: {
         Accept: 'application/json',
-        'User-Agent': 'Mi-eBird-Personal/5.5 (personal birding route planner)',
+        'User-Agent': 'Mi-eBird-Personal/5.7 (personal birding route planner)',
       },
       signal: controller.signal,
     });
@@ -72,18 +69,67 @@ async function fetchGeocode(query = {}) {
     error.statusCode = response.status >= 400 ? response.status : 502;
     throw error;
   }
+  return payload;
+}
 
-  const address = payload.address || {};
-  const result = {
-    region: first(address, ['state', 'region', 'state_district']),
+function extractTerritory(payload, zoom) {
+  const address = payload?.address || {};
+  const broadName = String(payload?.namedetails?.name || payload?.name || '').trim();
+  const region = first(address, ['state', 'region', 'state_district']) || (zoom <= 6 ? broadName : '');
+  const commune = first(address, ['municipality', 'county', 'city_district', 'district', 'city', 'town', 'village']) || (zoom >= 8 ? broadName : '');
+  return {
+    region,
     regionCode: String(address['ISO3166-2-lvl4'] || address['ISO3166-2-lvl3'] || '').trim(),
-    commune: first(address, ['municipality', 'county', 'city_district', 'district', 'city', 'town', 'village']),
+    commune,
     communeCode: '',
     country: first(address, ['country']),
     countryCode: String(address.country_code || '').toUpperCase(),
-    displayName: String(payload.display_name || ''),
+    displayName: String(payload?.display_name || ''),
+  };
+}
+
+function mergeTerritory(base, addition) {
+  return {
+    region: base.region || addition.region || '',
+    regionCode: base.regionCode || addition.regionCode || '',
+    commune: base.commune || addition.commune || '',
+    communeCode: base.communeCode || addition.communeCode || '',
+    country: base.country || addition.country || '',
+    countryCode: base.countryCode || addition.countryCode || '',
+    displayName: base.displayName || addition.displayName || '',
     provider: 'Nominatim / OpenStreetMap',
   };
+}
+
+async function fetchGeocode(query = {}) {
+  const lat = boundedNumber(query.lat, -90, 90, 'Latitud');
+  const lng = boundedNumber(query.lng, -180, 180, 'Longitud');
+  const key = `${lat.toFixed(4)},${lng.toFixed(4)}`;
+  const cached = cacheGet(key);
+  if (cached) return cached;
+
+  let result = { region: '', regionCode: '', commune: '', communeCode: '', country: '', countryCode: '', displayName: '', provider: 'Nominatim / OpenStreetMap' };
+  let lastError = null;
+
+  // Primero busca el detalle local. Si falta región, amplía obligatoriamente la escala administrativa.
+  for (const zoom of [12, 8, 5]) {
+    try {
+      const payload = await queryNominatim(lat, lng, zoom);
+      result = mergeTerritory(result, extractTerritory(payload, zoom));
+      if (result.region && result.commune) break;
+      await wait(1100);
+    } catch (error) {
+      lastError = error;
+      await wait(1100);
+    }
+  }
+
+  if (!result.region) {
+    const error = new Error(lastError?.message || 'No fue posible determinar una región para las coordenadas.');
+    error.statusCode = lastError?.statusCode || 422;
+    throw error;
+  }
+
   cacheSet(key, result);
   return result;
 }

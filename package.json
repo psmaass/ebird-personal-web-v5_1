@@ -1,8 +1,8 @@
 {
   "name": "mi-ebird-personal-web",
-  "version": "5.5.0",
+  "version": "5.7.0",
   "private": true,
-  "description": "Aplicación personal para lista de aves, territorios por coordenadas y rutas regionales optimizadas, con taxonomía eBird.",
+  "description": "Aplicación personal para lista de aves nativas y rutas regionales, con resolución obligatoria de región por coordenadas y taxonomía eBird.",
   "engines": {
     "node": "22.x"
   }
