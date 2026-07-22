@@ -1,26 +1,28 @@
-# Mi eBird Personal Web v5.2
+# Mi eBird Personal v5.3
 
-Aplicación personal enfocada en:
+Aplicación web personal para:
 
-- lista de especies y avistamientos con taxonomía oficial de eBird;
-- ranking territorial de oportunidades por país, región, comuna y hotspot;
-- cálculo de ruta vial real desde un punto de origen local;
-- circuito de ida y vuelta optimizado con OSRM/OpenStreetMap.
+- controlar especies y avistamientos con taxonomía oficial de eBird;
+- consultar oportunidades recientes por país, región, comuna o hotspot;
+- construir una ruta vial únicamente entre los sitios a visitar;
+- optimizar el orden de la ruta mediante distancia y tiempo de carretera;
+- excluir de la planificación especies naturalizadas, exóticas provisionales y escapes (`N`, `P`, `X`).
 
-## Variable de entorno
+## Variable de entorno en Vercel
 
-- `EBIRD_API_KEY`: obligatoria en Vercel.
-
-La búsqueda y cotización de vuelos fue eliminada. No se requiere `SERPAPI_KEY`.
-
-## Estructura para GitHub/Vercel
-
+```text
+EBIRD_API_KEY
 ```
-api/
-public/
+
+## Archivos principales
+
+```text
+api/ebird.js
+api/routing.js
+api/config-status.js
+public/index.html
 index.html
-package.json
 vercel.json
 ```
 
-No subas archivos `.env` ni llaves privadas a GitHub.
+La aplicación guarda la información personal localmente en IndexedDB. Al cambiar de navegador o dispositivo se debe importar el CSV o restaurar un respaldo.
