@@ -1,16 +1,19 @@
-# Mi eBird Personal Web v5.1
+# Mi eBird Personal Web v5.2
 
-Versión exclusiva para GitHub y Vercel.
+Aplicación personal enfocada en:
 
-Esta edición elimina el servidor local `server.js` y la carpeta compartida `lib/`.
-Cada función de `/api` contiene su propia implementación, evitando errores de despliegue por archivos omitidos.
+- lista de especies y avistamientos con taxonomía oficial de eBird;
+- ranking territorial de oportunidades por país, región, comuna y hotspot;
+- cálculo de ruta vial real desde un punto de origen local;
+- circuito de ida y vuelta optimizado con OSRM/OpenStreetMap.
 
-## Variables de entorno en Vercel
+## Variable de entorno
 
-- `EBIRD_API_KEY`: obligatoria.
-- `SERPAPI_KEY`: opcional para búsqueda de vuelos.
+- `EBIRD_API_KEY`: obligatoria en Vercel.
 
-## Estructura obligatoria en GitHub
+La búsqueda y cotización de vuelos fue eliminada. No se requiere `SERPAPI_KEY`.
+
+## Estructura para GitHub/Vercel
 
 ```
 api/
@@ -20,4 +23,4 @@ package.json
 vercel.json
 ```
 
-No subas `.env` ni llaves privadas al repositorio.
+No subas archivos `.env` ni llaves privadas a GitHub.
