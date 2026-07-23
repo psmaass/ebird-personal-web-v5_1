@@ -1,4 +1,4 @@
-# Mi eBird Personal v6.6
+# Mi eBird Personal v6.6.1
 
 Aplicación web personal para controlar especies, observaciones, oportunidades recientes y rutas regionales usando la taxonomía oficial de eBird.
 
@@ -53,3 +53,10 @@ La región y comuna se resuelven con una jerarquía de fuentes y un índice terr
 - El enlace de “último registro” utiliza la observación específica del sitio, no un registro regional distinto.
 - El checklist puede abrirse en una vista consolidada, imprimirse o guardarse como PDF y descargarse como CSV UTF-8.
 - Las marcas realizadas en las casillas se conservan localmente hasta recalcular la ruta.
+
+
+## Corrección v6.6.1
+
+- Se restableció la función `renderMeta()`, eliminada accidentalmente durante la incorporación del checklist de rutas.
+- La sincronización vuelve a actualizar el estado lateral sin producir el error `renderMeta is not defined`.
+- No se eliminan observaciones, rutas ni configuraciones guardadas al actualizar desde v6.6.
