@@ -1,6 +1,6 @@
 {
   "name": "mi-ebird-personal-web",
-  "version": "6.6.1",
+  "version": "6.6.2",
   "private": true,
   "description": "Aplicación personal eBird con conciliación de lista de vida, categorías de origen, rutas regionales y checklist oficial imprimible por sitio.",
   "engines": {
