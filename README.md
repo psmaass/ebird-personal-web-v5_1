@@ -1,12 +1,12 @@
-# Mi eBird Personal v6.1
+# Mi eBird Personal v6.2
 
-Incluye checklist oficial imprimible y CSV por ruta y sitio.
+Aplicación personal basada en la taxonomía y observaciones de eBird. Esta versión incorpora un checklist oficial imprimible y exportable por cada ruta regional y sitio de visita.
 
-# Mi eBird Personal v6.0
+# Mi eBird Personal v6.2
 
 Aplicación web personal para controlar especies, observaciones y rutas regionales usando la taxonomía oficial de eBird.
 
-## Mejora territorial v6.0
+## Mejora territorial v6.2
 
 La región y comuna se resuelven con una jerarquía de fuentes y un índice territorial separado:
 
@@ -29,3 +29,7 @@ La aplicación rechaza valores genéricos como `Chile` cuando se usan erróneame
 - `api/geocode.js`: resolución territorial oficial y global.
 - `api/routing.js`: rutas OSRM/OpenStreetMap.
 - `index.html` y `public/index.html`: aplicación web.
+
+
+## v6.2 — Enlaces a listas eBird
+Las tablas de especies muestran un enlace a la lista eBird que respalda el registro más reciente cuando el campo `subId` está disponible.
