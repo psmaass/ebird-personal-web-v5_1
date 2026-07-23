@@ -1,8 +1,8 @@
 {
   "name": "mi-ebird-personal-web",
-  "version": "5.8.0",
+  "version": "6.0.0",
   "private": true,
-  "description": "Aplicación personal eBird con rutas regionales e índice operativo de confiabilidad por especie y sitio.",
+  "description": "Aplicación personal eBird con asignación territorial oficial, rutas regionales e índice de confiabilidad por especie y sitio.",
   "engines": {
     "node": "22.x"
   }
