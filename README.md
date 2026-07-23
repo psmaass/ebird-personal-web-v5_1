@@ -1,8 +1,8 @@
-# Mi eBird Personal v6.4
+# Mi eBird Personal v6.6
 
 Aplicación web personal para controlar especies, observaciones, oportunidades recientes y rutas regionales usando la taxonomía oficial de eBird.
 
-## Conciliación de lista personal v6.4
+## Conciliación de categorías v6.5
 
 La aplicación separa dos conceptos que antes estaban mezclados:
 
@@ -34,4 +34,22 @@ La región y comuna se resuelven con una jerarquía de fuentes y un índice terr
 - `api/geocode.js`: resolución territorial oficial y global.
 - `api/routing.js`: rutas OSRM/OpenStreetMap.
 - `index.html` y `public/index.html`: aplicación web.
-- `INSTRUCCIONES_ACTUALIZACION_V6_4.md`: pasos de actualización y reimportación obligatoria.
+- `INSTRUCCIONES_ACTUALIZACION_V6_6.md`: pasos de actualización y reimportación obligatoria.
+
+
+## Categorías de origen v6.5
+
+- La ausencia de `Exotic Code` ya no se presenta automáticamente como **Nativa**.
+- Los registros sin evidencia se muestran como **Sin clasificar**.
+- Al buscar una especie concreta o pulsar **Verificar con eBird**, la aplicación consulta la lista asociada mediante `product/checklist/view/{subId}`, guarda la categoría exacta del registro y actualiza la tabla.
+- Las respuestas de listas se guardan en caché local para no repetir solicitudes.
+- Las rutas siguen excluyendo cualquier especie confirmada como Naturalizada, Provisional o Escape.
+
+
+## Checklist oficial de rutas v6.6
+
+- El entregable de cada ruta se organiza por región y por orden efectivo de visita.
+- Cada sitio presenta una tabla con casilla de control, nombre común chileno, nombre en inglés, nombre científico, confiabilidad y aporte marginal a la ruta.
+- El enlace de “último registro” utiliza la observación específica del sitio, no un registro regional distinto.
+- El checklist puede abrirse en una vista consolidada, imprimirse o guardarse como PDF y descargarse como CSV UTF-8.
+- Las marcas realizadas en las casillas se conservan localmente hasta recalcular la ruta.
