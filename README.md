@@ -1,10 +1,17 @@
-# Mi eBird Personal v6.2
+# Mi eBird Personal v6.4
 
-Aplicación personal basada en la taxonomía y observaciones de eBird. Esta versión incorpora un checklist oficial imprimible y exportable por cada ruta regional y sitio de visita.
+Aplicación web personal para controlar especies, observaciones, oportunidades recientes y rutas regionales usando la taxonomía oficial de eBird.
 
-# Mi eBird Personal v6.2
+## Conciliación de lista personal v6.4
 
-Aplicación web personal para controlar especies, observaciones y rutas regionales usando la taxonomía oficial de eBird.
+La aplicación separa dos conceptos que antes estaban mezclados:
+
+- **Total eBird por país:** todas las especies registradas en el CSV personal, incluidas naturalizadas, provisionales y escapes.
+- **Total nativo por país:** especies sin código exótico, utilizado para oportunidades y planificación de rutas.
+
+Las filas con `Exotic Code` ya no se descartan durante la importación. Los taxones domésticos con `reportAs` se consolidan bajo la especie aceptada antes de decidir si corresponde incorporarlos.
+
+En **Datos y configuración → Diagnóstico** se muestra la conciliación por país y la lista de especies introducidas que explican cualquier diferencia entre ambos indicadores.
 
 ## Mejora territorial v6.2
 
@@ -17,8 +24,6 @@ La región y comuna se resuelven con una jerarquía de fuentes y un índice terr
 5. Nominatim/OpenStreetMap como respaldo para otros países.
 6. Referencia eBird cercana solo dentro de 120 km y con menor puntaje.
 
-La aplicación rechaza valores genéricos como `Chile` cuando se usan erróneamente como región. Cada parada muestra un indicador `Territorio X/100` y la ruta no agrupa puntos con una región insuficientemente confiable.
-
 ## Variables de Vercel
 
 - `EBIRD_API_KEY`
@@ -29,7 +34,4 @@ La aplicación rechaza valores genéricos como `Chile` cuando se usan erróneame
 - `api/geocode.js`: resolución territorial oficial y global.
 - `api/routing.js`: rutas OSRM/OpenStreetMap.
 - `index.html` y `public/index.html`: aplicación web.
-
-
-## v6.2 — Enlaces a listas eBird
-Las tablas de especies muestran un enlace a la lista eBird que respalda el registro más reciente cuando el campo `subId` está disponible.
+- `INSTRUCCIONES_ACTUALIZACION_V6_4.md`: pasos de actualización y reimportación obligatoria.
