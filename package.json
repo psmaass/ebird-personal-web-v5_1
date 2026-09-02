@@ -1,8 +1,8 @@
 {
   "name": "mi-ebird-personal-web",
-  "version": "6.7.0",
+  "version": "6.6.1",
   "private": true,
-  "description": "Aplicación personal eBird con conciliación de lista de vida, categorías de origen, rutas regionales, checklist oficial y objetivo Global Big Day para maximizar especies únicas.",
+  "description": "Aplicación personal eBird con conciliación de lista de vida, categorías de origen, rutas regionales y checklist oficial imprimible por sitio.",
   "engines": {
     "node": "22.x"
   }

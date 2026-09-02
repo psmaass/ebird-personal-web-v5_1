@@ -1,4 +1,4 @@
-# Mi eBird Personal v6.7
+# Mi eBird Personal v6.6.1
 
 Aplicación web personal para controlar especies, observaciones, oportunidades recientes y rutas regionales usando la taxonomía oficial de eBird.
 
@@ -34,7 +34,7 @@ La región y comuna se resuelven con una jerarquía de fuentes y un índice terr
 - `api/geocode.js`: resolución territorial oficial y global.
 - `api/routing.js`: rutas OSRM/OpenStreetMap.
 - `index.html` y `public/index.html`: aplicación web.
-- `INSTRUCCIONES_ACTUALIZACION_V6_7.md`: pasos para actualizar y usar el modo Global Big Day.
+- `INSTRUCCIONES_ACTUALIZACION_V6_6.md`: pasos de actualización y reimportación obligatoria.
 
 
 ## Categorías de origen v6.5
@@ -43,8 +43,7 @@ La región y comuna se resuelven con una jerarquía de fuentes y un índice terr
 - Los registros sin evidencia se muestran como **Sin clasificar**.
 - Al buscar una especie concreta o pulsar **Verificar con eBird**, la aplicación consulta la lista asociada mediante `product/checklist/view/{subId}`, guarda la categoría exacta del registro y actualiza la tabla.
 - Las respuestas de listas se guardan en caché local para no repetir solicitudes.
-- Los objetivos **Lifer mundial** y **Nueva para el país** siguen excluyendo especies confirmadas como Naturalizada, Provisional o Escape.
-- El objetivo **Todas las especies (Global Big Day)** incluye especies ya observadas y todas las categorías de origen presentes en registros recientes.
+- Las rutas siguen excluyendo cualquier especie confirmada como Naturalizada, Provisional o Escape.
 
 
 ## Checklist oficial de rutas v6.6
@@ -61,27 +60,3 @@ La región y comuna se resuelven con una jerarquía de fuentes y un índice terr
 - Se restableció la función `renderMeta()`, eliminada accidentalmente durante la incorporación del checklist de rutas.
 - La sincronización vuelve a actualizar el estado lateral sin producir el error `renderMeta is not defined`.
 - No se eliminan observaciones, rutas ni configuraciones guardadas al actualizar desde v6.6.
-
-
-## Ajuste v6.6.2 — itinerario sin información redundante
-
-- El itinerario deja de mostrar una tarjeta de confiabilidad y un checklist separados para la misma especie.
-- Cada especie aparece una sola vez por sitio, dentro del checklist del itinerario.
-- El puntaje conserva un control **Ver detalle** con distribución, época, último mes, cobertura espacial y años comparables.
-- El nombre y enlace del sitio se muestran una sola vez en el itinerario.
-- El checklist oficial, la impresión y el CSV mantienen su estructura por región y sitio.
-- La actualización conserva rutas, observaciones, categorías y marcas del checklist guardadas.
-
-
-## Planificación Global Big Day v6.7
-
-En **Rutas → Objetivo** se incorpora **Todas las especies (Global Big Day)**.
-
-- Incluye especies ya observadas, nativas, naturalizadas, introducidas provisionales y escapes presentes en observaciones recientes.
-- El ranking y la selección automática privilegian la complementariedad: una especie repetida en varios sitios se contabiliza una sola vez al medir el aporte de cada parada.
-- El optimizador conserva hasta 24 candidatos complementarios por región y elige la secuencia que cubre más especies únicas antes de desempatar por distancia y tiempo.
-- El checklist muestra la categoría de origen eBird y la exporta al CSV.
-- El máximo de paradas admite 2, 3, 4, 5, 6, 8 o 10 sitios.
-- Para evitar cientos de solicitudes individuales, la confiabilidad del modo Global Big Day se calcula desde el conjunto regional de observaciones recientes y la evidencia estacional histórica.
-
-La aplicación no impone automáticamente una jornada de 24 horas. Para un Big Day real se recomienda seleccionar una sola región, limitar las paradas y revisar el tiempo vial. La duración de conducción no incluye el viaje al primer sitio, el regreso ni el tiempo de observación en terreno.

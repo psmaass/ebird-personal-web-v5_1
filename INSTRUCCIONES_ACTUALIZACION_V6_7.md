@@ -1,33 +1,30 @@
-# Actualización v6.7 — objetivo Global Big Day
+# Actualización v6.7 — historial de registros recientes por especie
 
-## Función incorporada
+## Mejora principal
 
-En **Planificar rutas → Objetivo** se agregó:
+Las especies pendientes ya no quedan representadas únicamente por su último avistamiento público. La aplicación conserva el último registro en la vista compacta y permite abrir el historial reciente disponible para esa especie.
 
-**Todas las especies (Global Big Day)**
+### Qué cambia
 
-Este modo usa todas las especies presentes en los registros recientes, aunque ya hayan sido observadas personalmente. También conserva las categorías de origen de eBird: Nativa, Naturalizada, Introducida provisional y Escape.
+- **Inicio > Especies pendientes observadas recientemente** muestra una fila por especie, no una fila arbitraria por observación.
+- Cada especie indica cuántos **registros recientes** y cuántos **sitios distintos** existen.
+- Se agrega **Ver últimos registros (N)**.
+- El historial se ordena desde el registro más reciente al más antiguo y muestra fecha, sitio, comuna, región, cantidad, estado y enlace a la lista eBird.
+- **Especies > Pendientes** incorpora el mismo acceso al historial.
+- La ficha de detalle de una especie pendiente también expone los registros públicos recientes.
+- Se deduplican observaciones por `subId`; si no existe lista asociada, se usa fecha + sitio/coordenadas.
 
-## Cómo optimiza
+### Priorización visual
 
-- Cuenta especies únicas, no la suma repetida de especies entre sitios.
-- Selecciona destinos complementarios dentro de cada región.
-- Prioriza primero la cantidad de especies nuevas aportadas por una parada.
-- Usa distancia y tiempo vial para desempatar rutas con cobertura semejante.
-- Permite hasta 10 paradas.
+- Alta oportunidad: 3 o más registros recientes **o** 2 o más sitios distintos.
+- Oportunidad media: 2 registros.
+- Registro aislado: 1 registro.
 
 ## Actualización
 
-1. Reemplaza el contenido del repositorio por la carpeta `ebird-personal-web-v6_7`.
-2. Publica nuevamente en Vercel.
-3. Recarga la aplicación con `Ctrl + F5`.
-4. Confirma que el encabezado muestre **v6.7 · planificación Global Big Day**.
-5. En **Rutas**, selecciona **Todas las especies (Global Big Day)**.
-6. Elige país, región, período y nivel de ranking.
-7. Presiona **Buscar oportunidades** y luego **Calcular ruta óptima**.
+1. Reemplaza el contenido del repositorio con la carpeta `ebird-personal-web-v6_7`.
+2. Mantén `EBIRD_API_KEY` en Vercel.
+3. Publica nuevamente y recarga con `Ctrl + F5`.
+4. Presiona **Actualizar** en registros recientes o **Sincronizar eBird** para refrescar la ventana de 30 días.
 
-No es necesario volver a importar el CSV ni sincronizar la taxonomía. Sí debes volver a buscar oportunidades y recalcular la ruta para aplicar el nuevo objetivo.
-
-## Alcance operativo
-
-La ruta informa conducción entre sitios. No incluye el traslado hasta la primera parada, el regreso desde la última ni el tiempo de observación. Para una jornada de un día, limita la búsqueda a una región y ajusta el máximo de paradas según el tiempo disponible.
+No es necesario reimportar `MyEBirdData.csv`.
