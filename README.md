@@ -60,3 +60,8 @@ La región y comuna se resuelven con una jerarquía de fuentes y un índice terr
 - Se restableció la función `renderMeta()`, eliminada accidentalmente durante la incorporación del checklist de rutas.
 - La sincronización vuelve a actualizar el estado lateral sin producir el error `renderMeta is not defined`.
 - No se eliminan observaciones, rutas ni configuraciones guardadas al actualizar desde v6.6.
+
+
+## v6.8 — historial reciente por especie
+
+Las especies pendientes pueden abrir sus últimos registros públicos recientes. La vista muestra 5 inicialmente y permite ampliar hasta 20, con conteo de registros y sitios distintos, deduplicación y enlaces a las listas eBird.
