@@ -1,0 +1,140 @@
+{
+  "version": "2026-09-03",
+  "country": "CL",
+  "source": "eBird Basic Dataset Chile, processed locally",
+  "coverage": {
+    "from": "2024-01-01",
+    "to": "2026-07-31"
+  },
+  "regions": [
+    {
+      "code": "CL-AI",
+      "rows": 34529,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-AI.tsv.gz",
+      "bytes": 918881
+    },
+    {
+      "code": "CL-AN",
+      "rows": 30432,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-AN.tsv.gz",
+      "bytes": 634026
+    },
+    {
+      "code": "CL-AP",
+      "rows": 49483,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-AP.tsv.gz",
+      "bytes": 982180
+    },
+    {
+      "code": "CL-AR",
+      "rows": 86943,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-AR.tsv.gz",
+      "bytes": 2243344
+    },
+    {
+      "code": "CL-AT",
+      "rows": 39942,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-AT.tsv.gz",
+      "bytes": 850079
+    },
+    {
+      "code": "CL-BI",
+      "rows": 83462,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-BI.tsv.gz",
+      "bytes": 1841586
+    },
+    {
+      "code": "CL-CO",
+      "rows": 82599,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-CO.tsv.gz",
+      "bytes": 1810181
+    },
+    {
+      "code": "CL-LI",
+      "rows": 51558,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-LI.tsv.gz",
+      "bytes": 1233367
+    },
+    {
+      "code": "CL-LL",
+      "rows": 220658,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-LL.tsv.gz",
+      "bytes": 5284573
+    },
+    {
+      "code": "CL-LR",
+      "rows": 68718,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-LR.tsv.gz",
+      "bytes": 1539830
+    },
+    {
+      "code": "CL-MA",
+      "rows": 142038,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-MA.tsv.gz",
+      "bytes": 3573585
+    },
+    {
+      "code": "CL-ML",
+      "rows": 61567,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-ML.tsv.gz",
+      "bytes": 1455716
+    },
+    {
+      "code": "CL-NB",
+      "rows": 25250,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-NB.tsv.gz",
+      "bytes": 599438
+    },
+    {
+      "code": "CL-RM",
+      "rows": 203588,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-RM.tsv.gz",
+      "bytes": 4810888
+    },
+    {
+      "code": "CL-TA",
+      "rows": 8885,
+      "from": "2024-01-01",
+      "to": "2026-07-29",
+      "file": "CL-TA.tsv.gz",
+      "bytes": 171443
+    },
+    {
+      "code": "CL-VS",
+      "rows": 233037,
+      "from": "2024-01-01",
+      "to": "2026-07-31",
+      "file": "CL-VS.tsv.gz",
+      "bytes": 4928461
+    }
+  ],
+  "totalRows": 1422689
+}

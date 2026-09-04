@@ -1,3 +1,7 @@
+## Versión 7.0
+
+Rutas con histórico EBD Chile 2024-2026 integrado por región y complemento de API reciente.
+
 # Mi eBird Personal v6.6.1
 
 Aplicación web personal para controlar especies, observaciones, oportunidades recientes y rutas regionales usando la taxonomía oficial de eBird.
@@ -65,3 +69,12 @@ La región y comuna se resuelven con una jerarquía de fuentes y un índice terr
 ## v6.8 — historial reciente por especie
 
 Las especies pendientes pueden abrir sus últimos registros públicos recientes. La vista muestra 5 inicialmente y permite ampliar hasta 20, con conteo de registros y sitios distintos, deduplicación y enlaces a las listas eBird.
+
+
+## v6.9 — períodos ampliados y todos los puntos de ruta
+
+- Rutas permite seleccionar 30, 60, 90, 120, 180, 270 o 365 días.
+- La API pública de observaciones recientes de eBird se consulta por los últimos 30 días. Para ventanas mayores, la aplicación conserva y combina el historial público acumulado en sincronizaciones anteriores, con deduplicación de registros y retención de hasta 365 días.
+- “Máximo de paradas” cambia a “Puntos a visitar”. La opción predeterminada es “Todos los posibles”.
+- Se amplía el optimizador desde 24 hasta 45 sitios elegibles por región, que corresponde al límite configurado del servicio vial interno.
+- “Seleccionar mejores” selecciona todos los destinos cuando está activa la opción “Todos los posibles”; con un número específico mantiene el límite indicado.
