@@ -1,6 +1,6 @@
-## Versión 7.0
+## Versión 7.1
 
-Rutas con histórico EBD Chile 2024-2026 integrado por región y complemento de API reciente.
+Rutas con histórico EBD Chile 2024-2026, filtros reordenados, objetivo Global Big Day y lifer regional integrado por región y complemento de API reciente.
 
 # Mi eBird Personal v6.6.1
 
